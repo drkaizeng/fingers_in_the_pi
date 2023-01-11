@@ -1,6 +1,6 @@
 ## Setting up the Pi
 - Format the micro SD to `MS-DOS (FAT32)`
-- Download NOOBS, the full version, not the lite version, from `https://downloads.raspberrypi.org`. Uncompress the downloaded file and the contents to the SD card using `unzip NOOBS_v3_8_1.zip -d path_to_sd_card`.
+- Download NOOBS, the full version, not the lite version, from `https://downloads.raspberrypi.org`. Uncompress the downloaded file and save the contents to the SD card using `unzip NOOBS_v3_8_1.zip -d path_to_sd_card`.
 
 
 
