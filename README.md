@@ -36,10 +36,10 @@ The following are the steps we used to set up our Raspberry 4 Model B with 4Gb R
   - Open the control pallete and type `Remote-SSH: Connect to Host` > `Configure SSH Hosts`, then select the `config` file in the `.ssh` folder in your home directory. Add something similar to the following to the file:
   ```
   Host rpi
-  AddKeysToAgent yes
-  UseKeychain yes
-  IdentityFile ~/.ssh/id_ed25519
-  User your_user_name
+    AddKeysToAgent yes
+    UseKeychain yes
+    IdentityFile ~/.ssh/id_ed25519
+    User your_pi_user_name
   ```
   
   Once the above changes have been saved, you can click on the `Remote Development` icon in the left-hand bar of the window. `rpi` should appear. Click on the open folder icon to the right of `rpi` to open a folder on the Pi. VS Code will remember this folder has been opened before. So next time when we click on the Remote Development icon, we will see a list of folders that we have worked on before.
