@@ -33,23 +33,42 @@ The following are the steps we used to set up our Raspberry 4 Model B with 4Gb R
 
 - Install VS Code on the non-Pi machine
   - Add the Remote Development extension pack.
-  - Open the control pallete and type `Remote-SSH: Connect to Host`, key in `user_name@ip_addr` (or, if set up, `user_name@rpi`). VS Code should connect and we are all set for coding :-)
+  - Open the control pallete and type `Remote-SSH: Connect to Host` > `Configure SSH Hosts`, then select the `config` file in the `.ssh` folder in your home directory. Add something similar to the following to the file:
+  ```
+  Host rpi
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+  User your_user_name
+  ```
+  
+  Once the above changes have been saved, you can click on the `Remote Development` icon in the left-hand bar of the window. `rpi` should appear. Click on the open folder icon to the right of `rpi` to open a folder on the Pi. VS Code will remember this folder has been opened before. So next time when we click on the Remote Development icon, we will see a list of folders that we have worked on before.
+
   
 
 
-# Install `miniconda`
-- Go and download the latest install made for ARM CPUs
-  ```
-  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-armv7l.sh
-  bash name_of_downloaded_file
-  ```
+# Creating a `venv` for python development
+The version of Raspberry Pi OS cames with `python 3.9.2`, which was sufficient for our purpose. However, it is good practice to use a local environment for each project, so that different projects do not clash with one another. The following creates a new environment in a local folder named `venv`.
+```
+python -m venv --copies --clear ./venv
+source ./venv/bin/activate
+```
 
-  Follow the on-screen instructions. When asked
-  ```
-  Do you wish the installer to prepend the Miniconda3 install location
-  to PATH in your /home/kai/.bashrc ? [yes|no]
-  ```
+The name `venv` should appear in thecommand prompt, indicating that the environment has been activate. New packages can now be installed using `pip`.
 
-  It is a good idea to say yes. 
+Use `deactivate` to exit the environment.
 
-- Close the terminal app and restart again to let it take effect. Type `conda --version`. The version of installed conda should be printed to screen.
+
+# Set up a python project in VS Code with git version constrol
+- Use equivalent steps to create a SSH key pair for the Pi. On you Github account, in "Settings > SSH and GPG keys", add the Pi's public key. 
+
+- Create a repo on Github. On the repo's homepage, find a large green button named "Code", and copy the contents of SSH into the clip board.
+
+- Open a terminal on the Pi, go to a desired location, and issue `git clone contents_in_clipboard`. If `git` has not been installed on, do `sudo apt-get install git` first.
+
+- We will primarily be doing remote development using VS Code. Use the previous step to connect to the Pi remotely in VS Code. Open the folder created by `git clone`. 
+  
+- First we need to install the Python extension pack in VS Code. The `Black Formatter` extension could also be installed to help automatical code formatting. Then open the control pallete, type `Python: Select Interpreter` > "+ Enter interpreter path...". In the window, find the folder that contains the `venv`, and within it, locate `bin/python`.
+
+We should now have the basic version control and tools for python development :-)
+
