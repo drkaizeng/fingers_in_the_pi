@@ -1,4 +1,4 @@
-[Setting up the Pi](#setting-up-the-pi)
+[Setting up the Pi](#setting-up-the-pi-with-ssh-and-vs-code)
 
 
 # Setting up the Pi (with SSH and VS Code)
@@ -35,3 +35,21 @@ The following are the steps we used to set up our Raspberry 4 Model B with 4Gb R
   - Add the Remote Development extension pack.
   - Open the control pallete and type `Remote-SSH: Connect to Host`, key in `user_name@ip_addr` (or, if set up, `user_name@rpi`). VS Code should connect and we are all set for coding :-)
   
+
+
+# Install `miniconda`
+- Go and download the latest install made for ARM CPUs
+  ```
+  wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-armv7l.sh
+  bash name_of_downloaded_file
+  ```
+
+  Follow the on-screen instructions. When asked
+  ```
+  Do you wish the installer to prepend the Miniconda3 install location
+  to PATH in your /home/kai/.bashrc ? [yes|no]
+  ```
+
+  It is a good idea to say yes. 
+
+- Close the terminal app and restart again to let it take effect. Type `conda --version`. The version of installed conda should be printed to screen.
