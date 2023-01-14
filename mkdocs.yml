@@ -6,6 +6,7 @@ theme:
 nav:
     - Home: index.md
     - "Initial set-up": 
-        - index.md
+        - Installing an OS on the Pi: initial_setup/installing_os.md
+        - Enabling access via SSH: initial_setup/ssh_setup.md
     - Projects: 
         - projects.md
