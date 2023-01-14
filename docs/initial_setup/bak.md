@@ -41,6 +41,8 @@ The following are the steps we used to set up .
   
   Once the above changes have been saved, you can click on the `Remote Development` icon in the left-hand bar of the window. `rpi` should appear. Click on the open folder icon to the right of `rpi` to open a folder on the Pi. VS Code will remember this folder has been opened before. So next time when we click on the Remote Development icon, we will see a list of folders that we have worked on before.
 
+  After rebooting the Pi, `keychain` requires us to enter the SSH passphrase. VS Code does not seem to allow us to do this. The work-around is to open a terminal and log on to the Pi there. Once the connection is authenticated, VS Code should be able to connect to the Pi again.
+
   
 
 
