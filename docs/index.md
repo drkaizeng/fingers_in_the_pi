@@ -70,8 +70,9 @@ Use `deactivate` to exit the environment.
   
 - First we need to install the Python extension pack in VS Code. The `Black Formatter` extension could also be installed to help automatical code formatting. Then open the control pallete, type `Python: Select Interpreter` > "+ Enter interpreter path...". In the window, find the folder that contains the `venv`, and within it, locate `bin/python`.
 
-- Go to `https://readthedocs.org/` and follow the tutorial on setting up an account and importing projects from Github. 
-
 - To use Markdown to write documentation, we use `mkdocs`. Go to the project's folder, and activate the `venv` using the steps described above. Issue `pip install mkdocs` to add the tool into the `venv`. Then while at the top level of the project's folder, use `mkdocs new .` to create a new Markdown documentation set-up. This will add a folder `docs` and `mkdocs.yml` to the project. In `docs`, we will find `index.md`. This is the total level entry point for our documentation.
 
-- Enable
+- Go to `https://readthedocs.org/` and follow the tutorial on setting up an account and importing projects from Github. 
+  On "Project Details" page, check "Edit advanced project options" before clicking on "Next". On the next page, change "Documentation type" to "Mkdocs". 
+  
+- After the project has been imported, click on the "Admin" button. The go to "Adavanced settings", and check "Build pull requests for this project".
