@@ -73,3 +73,5 @@ Use `deactivate` to exit the environment.
 - Go to `https://readthedocs.org/` and follow the tutorial on setting up an account and importing projects from Github. 
 
 - To use Markdown to write documentation, we use `mkdocs`. Go to the project's folder, and activate the `venv` using the steps described above. Issue `pip install mkdocs` to add the tool into the `venv`. Then while at the top level of the project's folder, use `mkdocs new .` to create a new Markdown documentation set-up. This will add a folder `docs` and `mkdocs.yml` to the project. In `docs`, we will find `index.md`. This is the total level entry point for our documentation.
+
+- Enable
