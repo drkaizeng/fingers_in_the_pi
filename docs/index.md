@@ -63,6 +63,9 @@ Use `deactivate` to exit the environment.
 # Set up a python project in VS Code with git and readthedocs
 - Use equivalent steps to create a SSH key pair for the Pi. On you Github account, in "Settings > SSH and GPG keys", add the Pi's public key. 
 
+- `sudo apt-get install keychain`
+  Add `eval `keychain --eval --agents ssh id_ed25519`` to `~/.bash_profile`
+
 - Create a repo on Github. On the repo's homepage, find a large green button named "Code", and copy the contents of SSH into the clip board.
 
 - Open a terminal on the Pi, go to a desired location, and issue `git clone contents_in_clipboard`. If `git` has not been installed on, do `sudo apt-get install git` first.
