@@ -1,8 +1,9 @@
-[Setting up the Pi](#setting-up-the-pi-with-ssh-and-vs-code)
+# Fingers in the Pi
 
+This website documents how we (a 40+ man and a 10- boy) set up and experiment with our Raspberry 4 Model B with 4Gb RAM. We would be thrilled if you find any of the stuff useful. 
 
 # Setting up the Pi (with SSH and VS Code)
-The following are the steps we used to set up our Raspberry 4 Model B with 4Gb RAM.  
+The following are the steps we used to set up .  
 
 - Format the micro SD to `MS-DOS (FAT32)`.
 
@@ -76,3 +77,6 @@ Use `deactivate` to exit the environment.
   On "Project Details" page, check "Edit advanced project options" before clicking on "Next". On the next page, change "Documentation type" to "Mkdocs". 
   
 - After the project has been imported, click on the "Admin" button. The go to "Adavanced settings", and check "Build pull requests for this project".
+
+
+
