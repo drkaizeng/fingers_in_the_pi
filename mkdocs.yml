@@ -9,5 +9,6 @@ nav:
         - Installing an OS on the Pi: initial_setup/installing_os.md
         - Enabling access via SSH: initial_setup/ssh_setup.md
         - Using VS Code for remote development: initial_setup/vscode_setup.md
+        - Setting up python development tools: initial_setup/python_setup.md
     - Projects: 
-        - projects.md
+        - LED: docs/projects/led.md 

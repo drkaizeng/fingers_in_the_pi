@@ -6,7 +6,7 @@ Although our Pi is a powerful little computer, we prefer to do most of our work 
 - Find out the IP address by issuing `ip addr` in the terminal. We use the WIFI. So the IP can be found in the section about `wlan0`. If you use an ethernet cable, then focus on `eth0`. On another compute on the same network (a Mac in our case), issue `ssh $ip_addr`, where `$ip_addr` is the value returned by the previous step, and follow the on-screen instructions to log in.
 
 
-## SSH key pair
+## SSH key pair on the Mac
 To avoid having to type password to log in via SSH everytime, we created an SSH key pair on the Mac (identical steps of Linux machines). These steps are all done in a terminal.
 
 - Issue `ssh-keygen -t ed25519 -C "email@server.com"`, enter a passphrase and save file to the default location.
@@ -45,8 +45,8 @@ Host rpi
 ```
 
 
-## Linux: add passphrase to keychain
-In a terminal, do the following:
+## Pi: SSH key pair and add passphrase to keychain
+***Note***: This key pair is for enabling the Pi to communicate with, e.g., Github. The set up process is identical to that outlined above for the Mac. Afterwards, in a terminal, do the following:
 ```
 sudo apt-get install keychain
 ```
