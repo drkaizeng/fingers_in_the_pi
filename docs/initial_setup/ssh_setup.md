@@ -51,4 +51,8 @@ Host rpi
 sudo apt-get install keychain
 ```
 
-Add `eval `keychain --eval --agents ssh id_ed25519`` to `~/.bash_profile`. Then everytime we log in (e.g., after rebooting the Pi), the system will ask for the passphrase. We only need to do this once though.
+Add ``eval `keychain --eval --agents ssh id_ed25519` `` to `~/.bash_profile`. Then everytime we log in (e.g., after rebooting the Pi), the system will ask for the passphrase. We only need to do this once though.
+
+
+## Some observations
+After starting the Pi, gives it a few minutes for it to start to respond to `ping` or `ssh` connection requests. We have also experienced situation where the Pi suddenly stops responding. Just wait a few minutes. It will come back on. 

@@ -1,0 +1,22 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Module",
+            "type": "python",
+            "request": "launch",
+            "module": "led_light_show.led_light_show",
+            "justMyCode": true,
+            "args": [
+                "--led-gpio-ids",
+                "17",
+                "9",
+                "5",
+                "--path-to-mp3=/home/kai/fingers_in_the_pi/led_light_show/head_shoulders_knees_toes.mp3"
+            ]
+        }
+    ]
+}

@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 import subprocess
 from time import sleep
-from typing import Callable, List, NamedTuple
+from typing import List, NamedTuple, Tuple
 from pathlib import Path
 
 from gpiozero import LED
@@ -19,27 +19,138 @@ def delayed_array_blink(lead_time: float, leds: List[LED], should_blink: List[in
         led.off()
 
 
-def light_show() -> None:
-    jim = LED(17)
-    kai = LED(26)
-
-    def blink(lead_time, should_blink, led_on_time):
-        delayed_array_blink(lead_time, [jim, kai], should_blink, led_on_time)
-
-    blink(1, [1, 1], 0.1)
-    blink(0.5, [0, 1], 0.2)
-    blink(0.3, [1, 0], 0.3)
-    blink(0.9, [1, 0], 0.3)
-    blink(0.7, [1, 1], 0.3)
-    blink(0.2, [1, 0], 0.3)
-    blink(0.8, [0, 1], 12)
-    blink(1, [1, 1], 6)
-    blink(0.9, [0, 1], 3)
-    blink(0.3, [1, 0], 0.3)
-
-
 def get_blink_controls() -> List[BlinkControl]:
-    ...
+    lst = []
+    lst.append(BlinkControl(TimePoint(0, 5.02), [1, 0, 0], 0.08))
+    for i in range(5):
+        secs = 6.1 + i * 0.38
+        arr = [0] * 3
+        offset = (1 + i) % 3
+        arr[offset] = 1
+        lst.append(BlinkControl(TimePoint(0, secs), arr, 0.07))
+    lst.append(BlinkControl(TimePoint(0, 8.03), [1, 0, 0], 0.07))
+    for i in range(3):
+        secs = 8.78 + i * 0.37
+        lst.append(BlinkControl(TimePoint(0, secs), [1, 0, 1], 0.07))
+    lst.append(BlinkControl(TimePoint(0, 11.02), [0, 1, 0], 0.07))
+    for i in range(6):
+        secs = 12.15 + i * 0.37
+        arr = [0] * 3
+        offset = (1 + i) % 3
+        arr[offset] = 1
+        lst.append(BlinkControl(TimePoint(0, secs), arr, 0.07))
+    for i in range(5):
+        secs = 14.79 + i * 0.37
+        arr = [0] * 3
+        offset = (1 + i) % 3
+        arr[offset] = 1
+        lst.append(BlinkControl(TimePoint(0, secs), arr, 0.07))
+    for i in range(4):
+        secs = 17.03 + i * 0.75
+        arr = [0] * 3
+        offset = (1 + i) % 3
+        arr[offset] = 1
+        lst.append(BlinkControl(TimePoint(0, secs), arr, 0.07))
+    
+    for i in range(5):
+        secs = 20.03 + i * 0.37
+        arr = [0] * 3
+        offset = (1 + i) % 3
+        arr[offset] = 1
+        lst.append(BlinkControl(TimePoint(0, secs), arr, 0.07))
+    
+    for i in range(5):
+        secs = 22.29 + i * 0.75
+        arr = [0] * 3
+        offset = (i) % 3
+        arr[offset] = 1
+        lst.append(BlinkControl(TimePoint(0, secs), arr, 0.07))
+
+    # Big ding
+    lst.append(BlinkControl(TimePoint(0, 26.03), [1, 1, 1], 0.1))
+
+    lst.append(BlinkControl(TimePoint(0, 29.05), [0, 1, 0], 0.07))
+    for i in range(3):
+        secs = 29.05 + (i + 1) * 0.182
+        lst.append(BlinkControl(TimePoint(0, secs), [1, 0, 1], 0.04))
+    
+    lst.append(BlinkControl(TimePoint(0, 30.55), [0, 1, 0], 0.07))
+    for i in range(3):
+        secs = 30.55 + (i + 1) * 0.182
+        lst.append(BlinkControl(TimePoint(0, secs), [1, 0, 1], 0.04))
+    
+    # Big ding
+    lst.append(BlinkControl(TimePoint(0, 32.85), [1, 1, 1], 0.25))
+
+    lst.append(BlinkControl(TimePoint(0, 35.06), [0, 1, 0], 0.07))
+    for i in range(3):
+        secs = 35.06 + (i + 1) * 0.182
+        lst.append(BlinkControl(TimePoint(0, secs), [1, 0, 1], 0.04))
+
+    lst.append(BlinkControl(TimePoint(0, 36.55), [0, 1, 0], 0.07))
+    for i in range(2):
+        secs = 36.55 + (i + 1) * 0.182
+        lst.append(BlinkControl(TimePoint(0, secs), [1, 0, 1], 0.04))
+
+    for i in range(3):
+        secs = 37.28 + i * 0.37
+        arr = [0] * 3
+        offset = (1 + i) % 3
+        arr[offset] = 1
+        lst.append(BlinkControl(TimePoint(0, secs), arr, 0.07))
+
+    lst.append(BlinkControl(TimePoint(0, 41.02), [1, 0, 1], 0.07))
+    for i in range(6):
+        secs = 42.16 + i * 0.37
+        arr = [0] * 3
+        offset = (1 + i) % 3
+        arr[offset] = 1
+        lst.append(BlinkControl(TimePoint(0, secs), arr, 0.07))
+
+    lst.append(BlinkControl(TimePoint(0, 47.04), [1, 0, 0], 0.07))
+    for i in range(4):
+        secs = 47.65 + i * 0.75
+        arr = [0] * 3
+        offset = (i + 1) % 3
+        arr[offset] = 1
+        lst.append(BlinkControl(TimePoint(0, secs), arr, 0.07))
+
+    for i in range(4):
+        secs = 50.4 + i * 0.37
+        arr = [0] * 3
+        offset = (2 + i) % 3
+        arr[offset] = 1
+        lst.append(BlinkControl(TimePoint(0, secs), arr, 0.07))
+
+    lst.append(BlinkControl(TimePoint(0, 53.03), [1, 0, 0], 0.07))
+    for i in range(6):
+        secs = 54.15 + i * 0.37
+        arr = [0] * 3
+        offset = (1 + i) % 3
+        arr[offset] = 1
+        lst.append(BlinkControl(TimePoint(0, secs), arr, 0.07))
+
+    lst.append(BlinkControl(TimePoint(0, 56.79), [1, 1, 1], 0.07))
+    lst.append(BlinkControl(TimePoint(0, 57.54), [1, 1, 1], 0.07))
+
+    # Singing begins
+    for i in range(31):
+        tp = TimePoint(0, 59.03).add_seconds(0.75 * i)
+        arr = [0] * 3
+        offset = (i % 2) * 2
+        arr[offset] = 1
+        lst.append(BlinkControl(tp, arr, 0.06))
+    lst.append(BlinkControl(TimePoint(0, 0).add_seconds(82.28), [1, 1, 1], 0.05))
+
+    # # Change tempo
+    # for i in range(4):
+    #     tp = TimePoint(1, 23).add_seconds(0.5 * i)
+    #     lst.append(BlinkControl(tp, [0, 1, 0], 0.1))
+    #     for i in range(2):
+    #         tp = tp.add_seconds((i + 1) * 0.15)
+    #         lst.append(BlinkControl(tp, [1, 0, 1], 0.05))
+
+    return lst
 
 
 class BlinkControl(NamedTuple):
@@ -48,18 +159,21 @@ class BlinkControl(NamedTuple):
     blink_length: float
 
 
-def process_blink_controls(leds: List[LED], controls: List[BlinkControl]) -> List[Callable]:
+def process_blink_controls(
+    leds: List[LED], controls: List[BlinkControl]
+) -> List[Tuple[float, List[LED], List[int], float]]:
     ret = []
     for i, ctrl in enumerate(controls):
         if len(leds) != len(ctrl.should_blink):
             raise ValueError()
         elif i == 0:
-            ret.append(lambda: delayed_array_blink(ctrl.time.to_seconds(), leds, ctrl.should_blink, ctrl.blink_length))
+            lead_time = ctrl.time.to_seconds()
         else:
-            if controls[i - 1] > controls[i]:
+            previous_ctrl = controls[i - 1]
+            if not (ctrl > previous_ctrl):
                 raise ValueError()
-            lead_time = ctrl.time - controls[i - 1].time
-            ret.append(lambda: delayed_array_blink(lead_time, leds, ctrl.should_blink, ctrl.blink_length))
+            lead_time = ctrl.time - previous_ctrl.time - previous_ctrl.blink_length
+        ret.append((lead_time, leds, ctrl.should_blink, ctrl.blink_length))
     return ret
 
 
@@ -69,7 +183,7 @@ class TimePoint:
     """
 
     def __init__(self, minutes: int, seconds: float) -> None:
-        if minutes < 0 or seconds < 0:
+        if minutes < 0 or seconds < 0 or seconds >= 60:
             raise ValueError()
         self._minutes = minutes
         self._seconds = seconds
@@ -91,8 +205,13 @@ class TimePoint:
         res = 60 * m_diff + s_diff
         return res
 
-    def add_time(self, minutes: int, seconds: float) -> TimePoint:
-        return TimePoint(self._minutes + minutes, self._seconds + seconds)
+    def add_seconds(self, seconds: float) -> TimePoint:
+        if seconds < 0:
+            raise ValueError()
+        seconds = self._seconds + seconds
+        secs = seconds % 60
+        mins = int(seconds) // 60
+        return TimePoint(self._minutes + mins, secs)
 
     def to_seconds(self) -> float:
         return self._minutes * 60 + self._seconds
@@ -112,15 +231,17 @@ def main() -> None:
     if not Path(args.path_to_mp3).is_file():
         raise ValueError()
 
-    leds = [LED(x) for x in args.led_gpio_ids]
+    leds = [LED(int(x)) for x in args.led_gpio_ids]
 
     controls = get_blink_controls()
-    funcs = process_blink_controls(leds, controls)
+    processed_ctrls = process_blink_controls(leds, controls)
 
-    subprocess.Popen(["mpg123", "--quiet", args.path_to_mp3], stderr=subprocess.DEVNULL)
-    for func in funcs:
-        func()
+    proc = subprocess.Popen(["mpg123", "--quiet", args.path_to_mp3], stderr=subprocess.DEVNULL)
+    for ctrl in processed_ctrls:
+        delayed_array_blink(*ctrl)
+
+    proc.terminate()
 
 
 if __name__ == "__main__":
-    light_show()
+    main()

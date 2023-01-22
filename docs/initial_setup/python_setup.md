@@ -18,6 +18,11 @@ Go the to project's folder. The following creates a new environment in a local f
 python -m venv --copies --clear ./venv
 ```
 
+We will put our code in a directory name `src` in the repo. To make the `python` interpreter know about this, open `./venv/bin/activate`, and add the following to the end
+```
+export PYTHONPATH=path_to_src_folder
+```
+
 To activate the environment, use
 ```
 source ./venv/bin/activate
