@@ -18,6 +18,7 @@ pip install rpi.gpio pigpio gpiozero
 
 ## Running the program
 We need to do the following first:
+
 - Wire up 3 LED lights (see [below](#connecting-leds-to-the-pi)).
 - An MP3 file containing the song. There are website for converting Youtube videos to MP3s.
 - Connect speakers to the Pi. Note that the Pi may direct its audio output to the HDMI device (if connected). If the 3.5mm headphone jack is to be used, enter `sudo raspi-config` in a terminal. In `System Options` > `Audio`, choose 3.5mm jack.
