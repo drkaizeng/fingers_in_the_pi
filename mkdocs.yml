@@ -12,3 +12,4 @@ nav:
         - Setting up python development tools: initial_setup/python_setup.md
     - Projects: 
         - LED light show: projects/led_light_show.md
+        - Home-made keyboard: projects/home_made_keyboard.md
