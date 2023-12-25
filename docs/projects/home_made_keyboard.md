@@ -2,6 +2,19 @@
 
 In this project, we want to learn how to get the Pi to take inputs from push buttons.
 
+## Running the program
+The `soundfile` module depends on the system library `libsndfile`, which can be installed by
+```
+sudo apt-get install libsndfile1
+```
+
+The `sounddevice` module depends on `numpy`. Unfortunately, on my Pi, simply installing using `pip install numpy` did not work; the version installed missing underlying C/FORTRAN libraries. A solution is to use the `numpy` version provided by the Pi itself
+```
+sudo apt install python3-numpy
+```
+
+Do not activate any virtual environment, running `python -c "import numpy` should work without error. Then we tried to find out where the package had been installed by using `python -c "import sys; print(sys.path)"`. On my system, `numpy` was installed to `/usr/lib/python3/dist-packages`. 
+
 
 ## Electronics basics
 When looking into writing code to respond to push button signals, two unfamiliar terms kept popping up: pull-up and pull-down. So we spent sometime trying to understand the basics, just so that we wouldn't blow up the Pi :-). The following is what we have found.
