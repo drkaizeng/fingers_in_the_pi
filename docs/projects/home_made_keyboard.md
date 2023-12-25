@@ -2,6 +2,9 @@
 
 In this project, we want to learn how to get the Pi to take inputs from push buttons.
 
+When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+
 
 ## Electronics basics
 When looking into writing code to respond to push button signals, two unfamiliar terms kept popping up: pull-up and pull-down. So we spent sometime trying to understand the basics, just so that we wouldn't blow up the Pi :-). The following is what we have found.
