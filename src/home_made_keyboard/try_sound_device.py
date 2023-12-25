@@ -3,10 +3,8 @@ import threading
 import sounddevice as sd  # type: ignore
 import soundfile as sf  # type: ignore
 
-import sys
-sys.path.append('/usr/lib/python3/dist-packages')
+import numpy as np  # type: ignore
 
-import numpy as np
 assert np
 
 
@@ -37,3 +35,22 @@ stream = sd.OutputStream(
 )
 with stream:
     event.wait()  # Wait until playback is finished
+
+
+# Try to stop playback halfway
+current_frame = 0
+event.clear()
+
+
+def interrupted_callback(outdata, frames, time, status):
+    ...
+
+
+interrupted_stream = sd.OutputStream(
+    samplerate=fs,
+    device=0,
+    channels=data.shape[1],
+    callback=interrupted_callback,
+    finished_callback=event.set,
+    latency=0,
+)

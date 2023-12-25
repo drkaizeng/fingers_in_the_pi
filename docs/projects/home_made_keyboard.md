@@ -13,7 +13,7 @@ The `sounddevice` module depends on `numpy`. Unfortunately, on my Pi, simply ins
 sudo apt install python3-numpy
 ```
 
-Do not activate any virtual environment, running `python -c "import numpy` should work without error. Then we tried to find out where the package had been installed by using `python -c "import sys; print(sys.path)"`. On my system, `numpy` was installed to `/usr/lib/python3/dist-packages`. 
+Do not activate any virtual environment, running `python -c "import numpy` should work without error. Then we tried to find out where the package had been installed by using `python -c "import sys; print(sys.path)"`. On my system, `numpy` was installed to `/usr/lib/python3.9/dist-packages`. We can add this path to the virtual environment, so that python can also search there for packages. To do so, add a `.pth` file, which contains a single line `/usr/lib/python3.9/dist-packages`, to `${path_to_venv}/lib/python3.9/site-packages`.
 
 
 ## Electronics basics
