@@ -13,7 +13,7 @@ When a GPIO pin is connected to a push button, we are effectively using the pin 
 ### Pull-up resistors
 If we want high as the default state of the pin and want to change the state to low by pushing the button, we use pull-up resistors, as shown below. When the switch is open (off), there is a high voltage from B to C, leaving the pin in the high state. When the switch is closed (on), the current, after passing the pull-up resistor, flows directly to ground (D), because \(R_{BC}\) the impedance of the chip is typically very high. Thus, the pin is connected to ground (0V) and assumes the low state.
 <center>
-<img src="figs/home_made_keyboard_pull_up_resistor.png" alt="pull-up resistors" width="200">
+![](figs/home_made_keyboard_pull_up_resistor.png){: style="height:200px;width:200px"}
 </center>
 
 
@@ -30,7 +30,7 @@ where \(I_\text{IH(MAX)}\) is the maximum sink current (the ability of the port 
 ### Pull-down resistors
 Recall that the chip's job is to measure the voltage from the input pin B to its ground C. When the switch is open, B is effectively connected to ground. So there is a low voltage from B to C. When the swtich is closed, then B has voltage \(V_+\) and the pin is in the high state. 
 <center>
-<img src="figs/home_made_keyboard_pull_down_resistor.png" alt="pull-down resistors" width="200">
+![](figs/home_made_keyboard_pull_down_resistor.png){: style="height:200px;width:200px"}
 </center>
 
 
