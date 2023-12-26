@@ -8,12 +8,20 @@ The `soundfile` module depends on the system library `libsndfile`, which can be 
 sudo apt-get install libsndfile1
 ```
 
-The `sounddevice` module depends on `numpy`. Unfortunately, on my Pi, simply installing using `pip install numpy` did not work; the version installed missing underlying C/FORTRAN libraries. A solution is to use the `numpy` version provided by the Pi itself
+The `sounddevice` module depends on `numpy`. Unfortunately, on my Pi, simply installing using `pip install numpy` did not work; when importing the module, I got an error message that contained the phrase
+
+>ImportError: libopenblas.so.0: cannot open shared object file: No such file or directory
+
+This can be solved by using
+
 ```
-sudo apt install python3-numpy
+sudo apt-get install libopenblas-dev
 ```
 
-Do not activate any virtual environment, running `python -c "import numpy` should work without error. Then we tried to find out where the package had been installed by using `python -c "import sys; print(sys.path)"`. On my system, `numpy` was installed to `/usr/lib/python3.9/dist-packages`. We can add this path to the virtual environment, so that python can also search there for packages. To do so, add a `.pth` file, which contains a single line `/usr/lib/python3.9/dist-packages`, to `${path_to_venv}/lib/python3.9/site-packages`.
+Visit the following website for other solution to `numpy` import errors:
+```
+https://numpy.org/devdocs/user/troubleshooting-importerror.html
+```
 
 
 ## Electronics basics
