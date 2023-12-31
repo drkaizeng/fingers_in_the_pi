@@ -9,7 +9,7 @@ while True:
         break
 
 fs = 44100
-duration = 5  # seconds
+duration = 3  # seconds
 myrecording = sd.rec(int(duration * fs), samplerate=fs, channels=1, blocking=True)
 
 print("finished recording\n")

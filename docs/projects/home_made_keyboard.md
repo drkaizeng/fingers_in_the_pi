@@ -25,7 +25,14 @@ https://numpy.org/devdocs/user/troubleshooting-importerror.html
 
 
 ## Electronics basics
-When looking into writing code to respond to push button signals, two unfamiliar terms kept popping up: pull-up and pull-down. So we spent sometime trying to understand the basics, just so that we wouldn't blow up the Pi :-). The following is what we have found.
+When looking into writing code to respond to push button signals, two unfamiliar terms kept popping up: pull-up and pull-down. So we spent sometime trying to understand the basics, just so that we wouldn't blow up the Pi :-). 
+
+A TL;DR summary of what we found is:
+
+- Use the built-in pull-up resistor if one side of the button is connected to ground, and the other to a GPIO pin. 
+- Use the built-in pull-down resistor if one side of the button is connected to a 3V3 pin, and the other to any GPIO pin.
+
+
 
 ### The state of a digital logic gate (pin)
 When a GPIO pin is connected to a push button, we are effectively using the pin as a digital logic gate. A logic gate has two state: high and low. If the voltage from the pin of the chip to the chip's ground is below \(V_L\), then the pin's state is regarded as low. If the input voltage is above \(V_H\), then its state is regarded as high. Obviously, \(0 < V_L < V_H < V_\text{MAX}\). The interval \((V_L, V_H)\) is known as the indeterminate region, in which the state of the pin is neither high nor low. The purpose of pull-up/pull-down resisitors are to tie the state of the pin to high/low, by, e.g., preventing accidental switching of state due to interference. They also control the current flow and prevent short circuit.
