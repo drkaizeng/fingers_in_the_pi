@@ -11,11 +11,11 @@ import numpy
 import time
 from pathlib import Path
 from typing import Final, Union
-from multiprocessing import Pool, Process
+from multiprocessing import Process
 
 
 class MusicButton:
-    EVENT_LATENCY: Final[float] = 0.15
+    EVENT_LATENCY: Final[float] = 0.1
     SOUND_LEN_MULTIPLE: Final[int] = 5
 
     def __init__(self, pin_num: int, sound_file_path: Union[Path, str]) -> None:
@@ -80,19 +80,12 @@ def music_button(params: MusicButtonParams) -> None:
 params = [
     MusicButtonParams(2, "/home/kai/fingers_in_the_pi/fingers_in_the_pi_private_data/home_made_keyboard/do_1_edit.flac")
 ]
-# with Pool(1) as pool:
-#     # for _ in pool.imap_unordered(music_button, params):
-#     #     ...
-#     pool.map_async(music_button, params)
-#     print("ok")
-
 
 process = Process(target=music_button, args=(params[0],), daemon=True)
 process.start()
 
 if input("Hit enter to quit") == "":
     process.terminate()
-
 
 
 ###############################################################
