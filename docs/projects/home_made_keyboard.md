@@ -1,8 +1,12 @@
 # Home-made keyboard
 
-In this project, we want to learn how to get the Pi to take inputs from push buttons.
+We wanted to learn how to get the Pi to take inputs from push buttons. Making a keyboard seemed like a good idea. An extra ambition we had was that we wanted the sound played by the keyboard to be made by ourselves. This required us to learn how to do sound recording and editing in Python. It also posted some additional programming challenges, such as what to do when multiple keys (buttons) were pressed simultaneously.
 
-## Running the program
+
+## Setting up the python environment
+
+Before we can use `pip` to install the necessary supporting python packages, we need first install the system libraries that these packages are built on.
+
 The `soundfile` module depends on the system library `libsndfile`, which can be installed by
 ```
 sudo apt-get install libsndfile1
@@ -22,6 +26,30 @@ Visit the following website for other solution to `numpy` import errors:
 ```
 https://numpy.org/devdocs/user/troubleshooting-importerror.html
 ```
+
+Once the system libraries are installed, use the following commands to create a virtual environment.
+```
+git checkout db33bddf05edd9c1b003cf5c14b51fd0fef5cdff
+python -m venv --copies --clear ./venv
+source venv/bin/activate
+pip install -r requirements.txt
+export PYTHONPATH=path_to_src_folder  # This is the src folder inside the repo
+```
+
+
+## Sound recoding and editing
+We are luckily enough to have a little musician in the household who knows how to play the flute. We did not want to make a very large keyboard, but just one that had enough keys to let us play a classic song :-)
+<center>
+![](figs/home_made_keyboard_twinkle_score.jpg){: style="height:200px;width:200px"}
+</center>
+
+So the following were what we ended up doing:
+
+- Wrote a little program to record sounds (`src/home_made_keyboard/recording.py`).
+- Went to the quietest room in the house, and Jim played the six notes needed for the song. Each note was saved in a separate `flac` file.
+- Inspected wave forms of the recordings to find out where the useful bits were. We double checked, using `src/home_made_keyboard/audio_editor.py`, that the sections suggested by the wave forms did sound good, and that repeated it did not sound too odd (we had to accept that these homemade recordings were not going to be perfect).
+- Used `src/home_made_keyboard/audio_trimmer.py` to trim the original recordings and only kept the sections that we needed.
+
 
 
 ## Electronics basics
@@ -68,3 +96,19 @@ To calculate the maximum allowable resistance value for the pull-down resistor, 
 $$
 R_\text{MAX,Pull-down}  \le \frac{V_L}{I_\text{OUT}}
 $$
+
+
+## Wiring up the buttons and programming
+We used the built-in pull-up resistors. So the wiring was straightforward, as shown below by Jim
+
+
+
+The GPIO pins and the paths of the edited recodings were hard-coded in `main()` in `src/home_made_keyboard/home_made_keyboard.py`.
+
+To allow chords to be played when multiple keys were pressed at the same time, we used a separate subprocess to monitor each button.
+
+To run the program, use
+```
+export PYTHONPATH=path_to_src_folder  # This is the src folder inside the repo
+python -m home_made_keyboard.home_made_keyboard
+```
