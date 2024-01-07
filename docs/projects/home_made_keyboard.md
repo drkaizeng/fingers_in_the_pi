@@ -40,7 +40,7 @@ export PYTHONPATH=path_to_src_folder  # This is the src folder inside the repo
 ## Sound recoding and editing
 We are luckily enough to have a little musician in the household who knows how to play the flute. We did not want to make a very large keyboard, but just one that had enough keys to let us play a classic song :-)
 <center>
-![](figs/home_made_keyboard_twinkle_score.jpg){: style="height:200px;width:200px"}
+![](figs/home_made_keyboard_twinkle_score.jpg){: style="height:400px;width:400px"}
 </center>
 
 So the following were what we ended up doing:
