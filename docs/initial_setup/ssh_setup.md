@@ -9,7 +9,7 @@ Although our Pi is a powerful little computer, we prefer to do most of our work 
 ## SSH key pair on the Mac
 To avoid having to type password to log in via SSH everytime, we created an SSH key pair on the Mac (identical steps of Linux machines). These steps are all done in a terminal.
 
-- Issue `ssh-keygen -t ed25519 -C "email@server.com"`, enter a passphrase and save file to the default location.
+- Issue `ssh-keygen -t ed25519 -C "an_informative_comment"`, enter a passphrase and save file to the default location. (NB: it is easier to leave passphrase blank to avoid having to enter password or setting up a key chain)
 
 - Add the SSH key to `ssh-agent` by using 
   ```
