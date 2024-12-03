@@ -1,5 +1,12 @@
 # Installing an OS on the Pi
 
+## Using Raspberry Pi Imager
+- Download and install the Imager app from `https://www.raspberrypi.com/software/`.
+- Insert the micro SD card and follow the on-screen instructions. It simplifies things to ask the installation process to automatically configure the user name, password and WIFI connection.
+
+
+## Using NOOBS
+
 - Format the micro SD to `MS-DOS (FAT32)`. We did this using Disk Utility on a Mac. Click on the micro SD card and then select `Erase`.
     ![](figs/formatting_sd.png)
 
