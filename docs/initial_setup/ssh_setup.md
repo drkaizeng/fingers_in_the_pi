@@ -2,8 +2,8 @@
 Although our Pi is a powerful little computer, we prefer to do most of our work remotely. This way, we have easy access to the files and tools on our Mac, which makes development work go more smoothly. Furthermore, we can let the Pi boot into the CLI (i.e., the command line, without starting a desktop), which saves computing power. 
 
 - Enable SSH
-  - Boot into the Pi OS desktop. In "Preferences (access via top-right raspberry icon) > Paspberry Pi Configuration > Interfaces", enable "SSH". Click "OK" to confirm.
-  - If the installed OS has no desktop, then use `sudo apt install openssh-server` to install the server, `sudo service ssh start` to start the server, and `sudo systemctl enable ssh` to ensure that the service starts automatically on start-up.
+  * Boot into the Pi OS desktop. In "Preferences (access via top-right raspberry icon) > Paspberry Pi Configuration > Interfaces", enable "SSH". Click "OK" to confirm.
+  * If the installed OS has no desktop, then use `sudo apt install openssh-server` to install the server, `sudo service ssh start` to start the server, and `sudo systemctl enable ssh` to ensure that the service starts automatically on start-up.
 
 - Find out the IP address by issuing `ip addr` in the terminal. We use the WIFI. So the IP can be found in the section about `wlan0`. If you use an ethernet cable, then focus on `eth0`. On another compute on the same network (a Mac in our case), issue `ssh $ip_addr`, where `$ip_addr` is the value returned by the previous step, and follow the on-screen instructions to log in.
 
