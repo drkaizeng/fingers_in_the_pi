@@ -18,3 +18,8 @@
 - Insert the micro SD, connect the Pi to screen/mouse/keyboard, then plug it in. The lights on the Pi should start to flash and the screen should light up shortly afterwards. We set up the WIFI, and then installed *Raspberry Pi OS Full (32-bit) with desktop and recommended software*. The installation took less than 10 minutes. Then the Pi rebooted into the new OS automatically. We followed the on-screen instructions to choose a location and set up an account. Updating the OS took longer, but the process went smoothly, requiring no user input.
 
 - In "Preferences (access via top-right raspberry icon) > Paspberry Pi Configuration". In the "System" tab, turn off "Auto Login".  Click "OK" to confirm. We then need to enter our password everytime we login, which seems to be more secure.
+
+
+## Tailoring the OS
+### Installing `neovim`
+The standard distributions listed on `https://github.com/neovim/neovim/releases` do not contain one for Linux running on ARM CPUs. To install, we first add `deb http://ftp.de.debian.org/debian sid main` to `/etc/apt/sources.list`. Then we can `sudo apt update && sudo apt install neovim`.
