@@ -23,3 +23,12 @@
 ## Tailoring the OS
 ### Installing `neovim`
 The standard distributions listed on `https://github.com/neovim/neovim/releases` do not contain one for Linux running on ARM CPUs. To install, we first add `deb http://ftp.de.debian.org/debian sid main` to `/etc/apt/sources.list`. Then we can `sudo apt update && sudo apt install neovim`.
+
+### Installing `boost.python`
+```
+# Bring in pyconfig.h, which is required for boost.python
+sudo apt update && sudo apt install python3-dev
+tar --bzip2 -xf boost_1_87_0.tar.bz2
+./bootstrap.sh --with-libraries=python --prefix=/home/kai/lib/boost_1_87_0
+./b2 install
+```
