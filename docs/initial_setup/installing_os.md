@@ -29,6 +29,6 @@ The standard distributions listed on `https://github.com/neovim/neovim/releases`
 # Bring in pyconfig.h, which is required for boost.python
 sudo apt update && sudo apt install python3-dev
 tar --bzip2 -xf boost_1_87_0.tar.bz2
-./bootstrap.sh --with-libraries=python --prefix=/home/kai/lib/boost_1_87_0
+./bootstrap.sh --with-libraries=python --prefix=/path/to/lib
 ./b2 install
 ```
