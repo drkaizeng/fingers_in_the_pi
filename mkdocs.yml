@@ -11,8 +11,10 @@ nav:
         - Using VS Code for remote development: initial_setup/vscode_setup.md
         - Setting up python development tools: initial_setup/python_setup.md
     - Projects: 
+        - Useful info: projects/useful_info.md
         - LED light show: projects/led_light_show.md
         - Home-made keyboard: projects/home_made_keyboard.md
+        - NPN transitors as switches and memory-based GPIO control: projects/transistors_switches_memory_gpio.md
 
 extra_javascript: 
     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
