@@ -1,4 +1,7 @@
 {
+    "files.associations": {
+        "wiringpi.h": "c"
+    }
     // "python.linting.flake8Enabled": false,
     // "python.linting.mypyEnabled": true,
     // "python.linting.enabled": true
