@@ -96,7 +96,7 @@ int main() {
 
 
 ### Using `wiringPi`
-Download a pre-built `.deb` file and install using `sudo apt install $path_to_deb_file`.
+Download a pre-built `.deb` file from `https://github.com/WiringPi/WiringPi/releases` and install using `sudo apt install $path_to_deb_file`.
 ```C
 // Compile: gcc -o LEDflash2 -l wiringPi
 
