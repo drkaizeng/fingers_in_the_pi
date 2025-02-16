@@ -18,8 +18,7 @@ nav:
 
 extra_javascript: 
     # Setting up mathjax: https://stackoverflow.com/questions/27882261/mkdocs-and-mathjax
-    # curl https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
-    - javascripts/mathjax.js
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 markdown_extensions:
     - mdx_math
