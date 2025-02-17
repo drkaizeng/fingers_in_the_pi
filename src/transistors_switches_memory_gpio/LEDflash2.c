@@ -1,5 +1,6 @@
-// Compile: gcc -o LEDflash2 -l wiringPi
+// Compile: gcc LEDflash2.c -o LEDflash2 -l wiringPi
 
+#include <stdio.h>
 #include <wiringPi.h> // Include WiringPi library!
 #include <unistd.h>   // usleep
 
@@ -22,4 +23,13 @@ int main(void)
         digitalWrite(pin_num, LOW);
         usleep(500000);          // cannot use sleep as it is non-blocking
     }
+
+    int model, rev, mem, maker, overVolted;
+    piBoardId(&model, &rev, &mem, &maker, &overVolted);
+    printf("This is an RPI: %s\n", piModelNames[model]);
+    printf(" with revision number: %s\n", piRevisionNames[rev]);
+    printf(" manufactured by: %s\n", piMakerNames[maker]);
+    printf(" it has: %d RAM and o/v: %d\n", mem, overVolted);
+    printf("LED GPIO has ALT mode: %d\n", getAlt(pin_num));
+    printf(" and value %d\n", digitalRead(pin_num));
 }

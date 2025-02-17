@@ -99,7 +99,7 @@ int main() {
 ### Using `wiringPi`
 Download a pre-built `.deb` file from `https://github.com/WiringPi/WiringPi/releases` and install using `sudo apt install $path_to_deb_file`.
 ```C
-// Compile: gcc -o LEDflash2 -l wiringPi
+// Compile: gcc $path_to_src_file -o LEDflash2 -l wiringPi
 
 #include <wiringPi.h> // Include WiringPi library!
 #include <unistd.h>   // usleep
